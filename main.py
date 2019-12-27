@@ -1,6 +1,7 @@
 # get current day and find distance from give holiday (christmas) in this case
 
 from datetime import date
+import json
 
 #finds the distance between 2 dates. Prints distance for testing
 def dateDistance(date, holiday):
@@ -23,19 +24,53 @@ def findYear(date, holiday):
             holiday = holiday.replace(date.year) 
     return holiday
 
+#check if a given variable is in the list, and return true or false
+def findInList(list, variable):
+    present = False
+    for i in list:
+        if i == variable:
+            present = True
+    return present
+
 def main():
+    #take contents of json and load into dictionary
+    holidayDict = {}
+    scratch = open("holidays.json", 'r')
+    temp = scratch.read()
+    holidayDict = (json.loads(temp))
+    #create list with all the titles so that the user knows input options
+    #as well as something to check their input on
+    holidayList = []
+    for i in holidayDict["holidayList"]:
+        holidayList.append(i)
+    
+    desired = input("What holiday would you like to calculate the eve for? Type options for available holidays\n")
+    #keep window open until they get the correct answer
+    correctInput = False
+    while correctInput ==  False:
+        if desired == "options":
+            print(holidayList)
+            desired = input("What holiday would you like to calculate the eve for? Type options for available holidays\n")
+        else:
+            if findInList(holidayList, desired) == True:
+                correctInput = True
+            else: 
+                print("That is not a valid holiday")
+                desired = input("What holiday would you like to calculate the eve for? Type options for available holidays\n")
+
+    print(holidayDict["holidayList"][desired])
     #d1 can be altered to custom date to test year finding function
     d1 = date.today()
     #1 is a dummy year. Will be used to check if it is a user created year
-    christmas = date(1,12,25)
+    holiday = date(holidayDict["holidayList"][desired]["year"],holidayDict["holidayList"][desired]["month"],holidayDict["holidayList"][desired]["day"])
 
-    christmas = findYear(d1, christmas)
+    holiday = findYear(d1, holiday)
 
-    eve = "Merry Christmas"
+    eve = "Merry " + desired
 
     #print out eve for distance. If date distance is 0, it is that day
     #and never concatenates eve
-    for i in range(0, dateDistance(d1, christmas)):
+    for i in range(0, dateDistance(d1, holiday)):
         eve = eve + " eve"
 
     eve = eve + "!"
