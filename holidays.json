@@ -1,0 +1,59 @@
+{
+    "holidayList" : {
+        "new year's" : {
+            "year" : 1,
+            "month" : 1,
+            "day" : 1
+        },
+        "groundhog" : {
+            "year" : 1,
+            "month" : 2,
+            "day" : 2
+        },
+        "valentine's" : {
+            "year" : 1,
+            "month" : 2,
+            "day" : 14
+        },
+        "st. patrick's" : {
+            "year" : 1,
+            "month" : 3,
+            "day" : 17
+        },
+        "earth day" : {
+            "year" : 1,
+            "month" : 4,
+            "day" : 22
+        },
+        "independence day" : {
+            "year" : 1,
+            "month" : 7,
+            "day" : 4
+        },
+        "patriot day" : {
+            "year" : 1,
+            "month" : 9,
+            "day" : 11
+        },
+        "halloween" : {
+            "year" : 1,
+            "month" : 10,
+            "day" : 31
+        },
+        "veterans' day" : {
+            "year" : 1,
+            "month" : 11,
+            "day" : 11
+        },
+        "pearl harbor day" : {
+            "year" : 1,
+            "month" : 12,
+            "day" : 7
+        },
+        "christmas" : {
+            "year" : 1,
+            "month" : 12,
+            "day" : 25
+        }
+    }
+}
