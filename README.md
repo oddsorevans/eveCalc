@@ -1,4 +1,6 @@
 # eveCalc
+![Christmas gif]
+(https://media.giphy.com/media/QsmWmk2MSej5bveXeo/giphy.gif)
 If the day before Christmas is Christmas eve, does that make the day before Christmas eve, Christmas eve eve?
 And the day before that Christmas eve eve eve?
 
