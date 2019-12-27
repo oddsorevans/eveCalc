@@ -23,20 +23,23 @@ def findYear(date, holiday):
             holiday = holiday.replace(date.year) 
     return holiday
 
+def main():
+    #d1 can be altered to custom date to test year finding function
+    d1 = date.today()
+    #1 is a dummy year. Will be used to check if it is a user created year
+    christmas = date(1,12,25)
 
-d1 = date(2019,12,24)
-#1 is a dummy year. Will be used to check if it is a user created year
-christmas = date(1,12,25)
+    christmas = findYear(d1, christmas)
 
-christmas = findYear(d1, christmas)
+    eve = "Merry Christmas"
 
-eve = "Merry Christmas"
+    #print out eve for distance. If date distance is 0, it is that day
+    #and never concatenates eve
+    for i in range(0, dateDistance(d1, christmas)):
+        eve = eve + " eve"
 
-#print out eve for distance. If date distance is 0, it is that day
-#and never concatenates eve
-for i in range(0, dateDistance(d1, christmas)):
-    eve = eve + " eve"
+    eve = eve + "!"
 
-eve = eve + "!"
+    print(eve)
 
-print(eve)
+main()
