@@ -18,7 +18,6 @@ Ultimately the plan is for this to be a discord bot. The bot will be able to qui
 Title | Description
 ----- | -----------
 json | static list added. need a way to hold dynamic holidays
-user choice | create function to allow user to choose holiday
 custom date | allow user to choose own event to calc eve of
 discord | create discord bot
 
