@@ -3,6 +3,9 @@
 from datetime import date
 import json
 
+#made a global to be used in functions
+holidayList = []
+
 #finds the distance between 2 dates. Prints distance for testing
 def dateDistance(date, holiday):
     distance = abs(date - holiday).days
@@ -32,18 +35,8 @@ def findInList(list, variable):
             present = True
     return present
 
-def main():
-    #take contents of json and load into dictionary
-    holidayDict = {}
-    scratch = open("holidays.json", 'r')
-    temp = scratch.read()
-    holidayDict = (json.loads(temp))
-    #create list with all the titles so that the user knows input options
-    #as well as something to check their input on
-    holidayList = []
-    for i in holidayDict["holidayList"]:
-        holidayList.append(i)
-    
+#get user input
+def userInput():
     desired = input("What holiday would you like to calculate the eve for? Type options for available holidays\n")
     #keep window open until they get the correct answer
     correctInput = False
@@ -57,6 +50,20 @@ def main():
             else: 
                 print("That is not a valid holiday")
                 desired = input("What holiday would you like to calculate the eve for? Type options for available holidays\n")
+    return desired
+
+def main():
+    #take contents of json and load into dictionary
+    holidayDict = {}
+    scratch = open("holidays.json", 'r')
+    temp = scratch.read()
+    holidayDict = (json.loads(temp))
+    #create list with all the titles so that the user knows input options
+    #as well as something to check their input on
+    for i in holidayDict["holidayList"]:
+        holidayList.append(i)
+
+    desired = userInput()
 
     print(holidayDict["holidayList"][desired])
     #d1 can be altered to custom date to test year finding function
